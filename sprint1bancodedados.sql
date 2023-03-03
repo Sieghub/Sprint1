@@ -16,6 +16,12 @@ create table tomate (idtomates int primary key auto_increment,
 nome varchar(20),
 origem varchar(30));
 
+create table sementes (
+idsementes int primary key auto_increment,
+nome varchar(30),
+origem varchar(50));
+
+
 insert into sementes (nome, origem)
 value ('tomate-cereja', 'Brasil'),
 ('italiano', 'Itália'),
@@ -35,3 +41,5 @@ preco varchar(60),
 quantidade varchar(70),
 semicondutor varchar(50),
 tempo_de_producao time);
+
+select * from  sementes;
