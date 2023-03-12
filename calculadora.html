@@ -37,7 +37,56 @@
         border-radius: 10px;
         font-size: 15px;
      }
-
+     
+     .botao {
+        position: relative;
+     display: inline-block;
+     margin: 15px;
+     padding: 10px 10px;
+     text-align: center;
+     font-size: 23px;
+     letter-spacing: 1px;
+     text-decoration: none;
+     color: green;
+     background: black;
+     cursor: pointer;
+     transition: ease-out 0.5s;
+     border: 2px solid black;
+     border-radius: 10px;
+     box-shadow: inset 0 0 0 0 green;
+     }
+     .ipt_kilo{
+    display: inline-block;
+    position: relative;
+    margin: 15px;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 0 white;
+}
+.ipt_kilometro{
+    display: inline-block;
+    position: relative;
+    margin: 15px;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 0 white;
+}
 
     </style>
 </head>
@@ -47,13 +96,13 @@
         <h1>Calculadora Financeira</h1>
     </div>
     <div style="width: 40%; margin-left: 40%;">
-    <h2  >Transporte pelo caminhão sem nosso serviço (em kilometro):</h2><input type="text" id="input_sem_logistica"><br><br>
+    <h2  >Insira sua distância(em kilometro) do fornecedor até o destino</h2><input class="ipt_kilo" type="text" id="input_sem_logistica"><br><br>
     <!-- <h2 class="h22">Transporte com nossa empresa:(em kilometro)</h2><input type="text" id="input_empresa"><br><br> -->
-    <h2 class="h23";> quantidade de cada tomate (em kilos):</h2><input type="number" id="input_quantidade_de_tomate"><br><br>
+    <h2 class="h23";> Quantidade que você deseja transportar (em kilos):</h2><input class="ipt_kilometro" type="number" id="input_quantidade_de_tomate"><br><br>
       
     </div>
     <div style="width:40%; margin-left: 50%;">
-    <button onclick="calcular()">Calcular</button>
+    <button class="botao" onclick="calcular()">Calcular</button>
     </div>
     <div style="height: 15px;"></div>
     <div id="resultado" style="width: 50%; margin-left: 40%"> </div>
@@ -94,8 +143,8 @@
             em combustível o valor de <b style="color:black"> 40.12%:</b> <b style=color:red><u>R$${combustivel.toFixed(2)}</b></u>,<br>
             imposto de<b style="color:black">9.57%:</b><b style=color:red><u>R$${imposto.toFixed(2)}</b></u>
             e com o caminhao<b style="color:black"> 34.45%:</b> <b style=color:red><u>R$${caminhao.toFixed(2)}</b></u>.
-            Com  o nosso serviço terá<br> aumento de<b style="color:black"> <b style="color:black">25%</b></b> no preço:<b style=color:red><u>R$${nosso_frete.toFixed(2)}</b></u>
-            pois nosso serviço diminuirá uma perda de <b>25%</b> do seu produto.`
+            Com  o nosso serviço terá<br> aumento de<b style="color:black"> 25% no preço:</b><b style=color:red><u>R$${nosso_frete.toFixed(2)}</b></u>
+            pois nosso serviço diminuirá uma perda de 25% do seu produto.`
     } if(quantidade_de_tomate > 10000) {
         resultado.innerHTML += `<h1 class="h12"><b>Por favor coloque menos frutas</b></h1> `
     }
