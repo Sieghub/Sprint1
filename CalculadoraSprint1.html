@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style= "text-align: center" >
+     <h2 style="color: red;">Faça já seu orçamento com a Valerin Transpotes:</h2>
+     Digite a quantidade de KM do ponto de partida para o destino:
+     <br>
+     <br>
+    <input id="input_km">
+     <br>
+     <br>
+    Digite a quantidade de tomates que será transportado (kg):
+     <br>
+     <br>
+    <input id="input_tomates">
+     <br>
+     <br>
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var KM = Number(input_km.value);
+        var TOMATES = Number(input_tomates.value);
+        var VALERIN = (KM * 9.83);
+        var COMUM = (KM * 7.87);
+        var PerdaValerin = (TOMATES * 0.05);
+        var PerdaComum = (TOMATES * 0.3);
+
+        div_mensagem.innerHTML= `<br>Contratando os serviços de um transporte comum você gastará em torno de <b>R$${COMUM}</b> 
+        e terá uma perda de até <b style="color: red"> 30%</b> de seus tomates, que corresponde a um prejuízo de em
+         média <b style="color:red">${PerdaComum}kg</b>.
+        <br>
+        <br>
+        E com a Valerin Transportes você gastará em torno de <b>R$${VALERIN}</b> 
+        e terá uma perda de até <b style="color: green">5%</b> de seus tomates, 
+        que corresponde a um prejuízo menor de <b style="color: green">${PerdaValerin}kg.</b>
+        <br>
+        <br>
+        <b>Valor:</b> Taxa de distância <b>R$${VALERIN}</b> + Mão de obra <b>R$120.00</b><br>
+        <b>TOTAL:</b> <b style="color: green">R$${VALERIN + 120}</b>`;
+        
+       
+
+
+
+
+
+
+
+
+    }
+</script>
