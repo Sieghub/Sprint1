@@ -66,81 +66,57 @@ insert into fornecedores (empresa, produto, qtdProduto) values
 select * from fornecedores;
 select * from cadastroPJ;
 
-create table sensor(
-idSensor int primary key auto_increment,
-marcaSensor Varchar(50),
-sensor varchar(50),
-preço varchar(40),
-qtdSensor varchar(40)
-);
-
-insert into sensor(marcaSensor, sensor, preço, qtdSensor) values
-('LM35','temperatura','20','10'),
-('LM35','temperatura','20','20'),
-('LM35','temperatura','20','30'),
-('LM35','temperatura','20','40'),
-('LM35','temperatura','20','50'),
-('LM35','temperatura','20','60'),
-('LM35','temperatura','20','70'),
-('LM35','temperatura','20','80'),
-('LM35','temperatura','20','90'),
-('LM35','temperatura','20','100');
-
-select * from sensor;
-
 create table registroSensor (
 idregistroSensor int primary key auto_increment,
+marcaSensor varchar(20),
+sensor varchar(20),
 temperatura varchar(10),
 hora time,
 datTemperatura date,
 statusSensor varchar(40)
 );
 
-insert into registroSensor (temperatura, hora, datTemperatura, statusSensor) values
-('15°c','22:10','2023-02-02','ativo'),
-('17°c','21:20','2023-01-01','desativado'),
-('20°c','20:30','2023-08-08','ativo'),
-('21°c','19:40','2023-09-08','desativado'),
-('22°c','18:50','2023-06-07','ativo'),
-('25°c','17:00','2023-07-06','desativado'),
-('10°c','16:10','2023-05-04','ativo'),
-('09°c','15:20','2023-04-05','desatiado'),
-('05°c','14:30','2023-03-02','ativo'),
-('13°c','13:40','2023-02-03','desativado');
+insert into registroSensor (marcaSensor, sensor, temperatura, hora, datTemperatura, statusSensor) values
+('LM35','temperatura','15°c','22:10','2023-02-02','ativo'),
+('LM35','temperatura','17°c','21:20','2023-01-01','desativado'),
+('LM35','temperatura','20°c','20:30','2023-08-08','ativo'),
+('LM35','temperatura','21°c','19:40','2023-09-08','desativado'),
+('LM35','temperatura','22°c','18:50','2023-06-07','ativo'),
+('LM35','temperatura','25°c','17:00','2023-07-06','desativado'),
+('LM35','temperatura','10°c','16:10','2023-05-04','ativo'),
+('LM35','temperatura','09°c','15:20','2023-04-05','desatiado'),
+('LM35','temperatura','05°c','14:30','2023-03-02','ativo'),
+('LM35','temperatura','13°c','13:40','2023-02-03','desativado');
 
 select * from registroSensor;
-
-select * from sensor;
 
 update registroSensor set  temperatura = '14ºC' where idregistroSensor = 01;
 
 select temperatura from registroSensor;
 
-select marcaSensor from sensor; 
+select marcaSensor from registroSensor; 
 
-select temperatura from registroSensor; 
+select sensor from registroSensor; 
 
-alter table sensor drop column qtdSensor;
+alter table registroSensor drop column hora;
 
-alter table sensor add column qtdSensor varchar(30);
+alter table registroSensor add column hora varchar(30);
 
 alter table registroSensor modify column statusSensor varchar(100);
 
-alter table sensor rename column preço to valor ;
+alter table registroSensor rename column datTemperatura to dia ;
 
-select  * from registroSensor order by hora;
+select  * from registroSensor order by statusSensor;
 
-select * from sensor order by valor desc;
+select * from registroSensor order by dia desc;
 
-describe sensor;
+describe registroSensor;
 
-delete from sensor where idSensor = 01;
+delete from registroSensor where idregistroSensor = 01;
+
+truncate table registroSensor;
 
 drop table registroSensor;
-
-truncate table sensor;
-
-drop table sensor;
 
 drop Database VALERIN;
 
